@@ -53,6 +53,9 @@ const Result = ({ searchTerm }) => {
     } else {
         audio.play();
         setPlay(true)
+        audio.addEventListener('ended', () => {
+            setPlay(false);
+          });
     }
   };
 
