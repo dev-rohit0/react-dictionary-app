@@ -30,9 +30,8 @@ const Result = ({ searchTerm }) => {
     if (!audio) return; 
     const handlePlay = () => setPlay(true);
     const handlePause = () => setPlay(false);
-    const handleEnded = () => setPlay(false);
+    
 
-    audio.addEventListener("ended", handleEnded);
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
 
@@ -40,7 +39,6 @@ const Result = ({ searchTerm }) => {
     return () => {
       audio.removeEventListener("play", handlePlay);
       audio.removeEventListener("pause", handlePause);
-      audio.removeEventListener("ended", handleEnded);
     };
   }, [audioRef]);
 
